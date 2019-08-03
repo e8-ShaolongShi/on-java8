@@ -1,7 +1,6 @@
 package ch13_functional.closure;
 
 import java.util.function.IntSupplier;
-import java.util.function.Supplier;
 
 /**
  * 闭包演示 闭包：函数访问作用域以外的变量  在java中闭包的表现形式就是匿名内部类
@@ -10,22 +9,17 @@ import java.util.function.Supplier;
  * @Date 2019-08-03 14:02
  * @Version 1.0
  */
-public class Closure1 {
-
-    static int i;
+public class Closure4 {
 
     /**
-     * 分析：
-     * 正常逻辑：
-     * IntSupplier result = Closure.produce();调用produce后，produce出栈、x消失。 x引用无使用回收
-     * 调用 result.apply() 时，岂不是没有了x,i   ===》 出现了问题，  能解决此问题的语言称为  支持闭包
-     *
-     * 可能 调用produce 后会产生一个对象与生产出来的方法绑定。 那么把i移到produce局部，process调用后i肯定消失，2中演示
+     * 演示 lambda表达式引用局部变量时，不能自增，必须是final或者与final同样的效果。  使用包装类型测试一下
      * @param x
      * @return
      */
     static IntSupplier produce(int x) {
-        return () -> x + i++; // 闭包方法引用了两个外部变量
+        Integer i = 0;
+//        i += 25; // 编译器能识别出来。
+        return () -> i + x;
     }
 
     public static void main(String[] args) {
