@@ -1,4 +1,4 @@
-package ch14_streams;
+package ch14_streams.create;
 
 /**
  * 假定为一种数据结构

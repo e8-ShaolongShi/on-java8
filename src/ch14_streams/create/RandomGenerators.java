@@ -1,4 +1,4 @@
-package ch14_streams;
+package ch14_streams.create;
 
 import java.util.Random;
 import java.util.stream.Stream;

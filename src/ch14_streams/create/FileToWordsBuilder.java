@@ -1,4 +1,4 @@
-package ch14_streams;
+package ch14_streams.create;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,12 +28,12 @@ public class FileToWordsBuilder {
                 });
     }
 
-    Stream<String> stream() {
+    public Stream<String> stream() {
         return builder.build();
     }
 
     public static void main(String[] args) throws IOException {
-        new FileToWordsBuilder(new File("src/ch14_streams/Cheese.dat").getAbsoluteFile().toString())
+        new FileToWordsBuilder(new File("src/ch14_streams/create/Cheese.dat").getAbsoluteFile().toString())
                 .stream()
                 .limit(7)
                 .map(w -> w + " ")
